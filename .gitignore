@@ -1,0 +1,18 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# MacOS
+.DS_Store
+
+# PyCharm
+.idea/
+__pycache__/
+
+# Pytest
+.pytest_cache
