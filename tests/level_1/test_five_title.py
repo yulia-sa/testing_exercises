@@ -15,6 +15,10 @@ def test_change_copy_item_with_exceed_len_limit():
         "Внимание! Внимание! Внимание! Внимание! Внимание! Внимание! Мартышка съела все бананы!!!!!!!!"
     assert change_copy_item(title_len_93_with_add_text_len_101) == \
         title_len_93_with_add_text_len_101
+    title_copy_len_93_with_add_text_len_101 = \
+        "Copy of Внимание! Внимание! Внимание! Внимание! Внимание! Внимание! Мартышка съела все бананы"
+    assert change_copy_item(title_copy_len_93_with_add_text_len_101) == \
+           title_copy_len_93_with_add_text_len_101
 
 
 def test_change_copy_item_without_exceed_len_limit():
@@ -72,7 +76,8 @@ def test_change_copy_item_with_exceed_custom_len_limit():
     Вместо дефолтного ограничения длины явно его указываем.
 
     Если длина (additional_copy_text + title) >= кастомного ограничения —
-    должны получить исходный title.
+    должны получить исходный title, вне зависимости от наличия в нем
+    текста "Copy of".
     """
     title_len_17_with_add_text_len_25 = \
         "Важная информация"
@@ -82,6 +87,10 @@ def test_change_copy_item_with_exceed_custom_len_limit():
         "Важная информация!"
     assert change_copy_item(title_len_18_with_add_text_len_26, 25) == \
         title_len_18_with_add_text_len_26
+    title_copy_len_17_with_add_text_len_25 = \
+        "Copy of Важно!!!!"
+    assert change_copy_item(title_copy_len_17_with_add_text_len_25, 25) == \
+           title_copy_len_17_with_add_text_len_25
 
 
 def test_change_copy_item_without_exceed_custom_len_limit():
