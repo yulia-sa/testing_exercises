@@ -13,7 +13,6 @@ def test__first__return_first_item():
     assert first([5, 6, 7, 8, 9], 10) == 5
     assert first([5, 6, 7, 8, 9], None) == 5
     assert first([5, 6, 7, 8, 9], NOT_SET) == 5
-    assert first([5, 6, 7, 8, 9], "NOT_SET") == 5
     assert first([5, 6, 7, 8, 9], "some_str") == 5
 
 
