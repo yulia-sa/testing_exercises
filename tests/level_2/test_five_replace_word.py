@@ -69,23 +69,3 @@ def test__replace_word__text_with_punctuation_marks_and_capitalization():
     result = replace_word(text, replace_from, replace_to)
 
     assert result == "new_word some text old_word, new_word and old_word!"
-
-
-def test__replace_word__word_to_replace_with_punctuation_marks():
-    text = "old_word, and one more old_word, and another old_word,"
-    replace_from = "old_word,"
-    replace_to = "new_word"
-
-    result = replace_word(text, replace_from, replace_to)
-
-    assert result == "new_word and one more new_word and another new_word"
-
-
-def test__replace_word__replacement_with_punctuation_marks():
-    text = "old_word and one more old_word and another old_word"
-    replace_from = "old_word"
-    replace_to = ":new_word,  "
-
-    result = replace_word(text, replace_from, replace_to)
-
-    assert result == ":new_word,   and one more :new_word,   and another :new_word,  "

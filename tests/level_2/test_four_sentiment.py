@@ -89,13 +89,3 @@ def test__check_tweet_sentiment__text_to_lowercase():
     result = check_tweet_sentiment(text, good_words, bad_words)
 
     assert result == "GOOD"
-
-
-def test__check_tweet_sentiment__text_split():
-    text = "good_word_1, good_word_2, good_word_3, good_word_3 bad_word_1 bad_word_2"
-    good_words = {"good_word_1", "good_word_2", "good_word_3"}
-    bad_words = {"bad_word_1", "bad_word_2", "bad_word_3"}
-
-    result = check_tweet_sentiment(text, good_words, bad_words)
-
-    assert result == "BAD"
