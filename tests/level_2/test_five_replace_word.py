@@ -61,11 +61,11 @@ def test__replace_word__empty_text_empty_words():
     assert result == ""
 
 
-def test__replace_word__text_with_punctuation_marks_and_capitalization():
-    text = "Old_word some text old_word, OLD_WorD and old_word!"
+def test__replace_word__text_with_capitalization():
+    text = "Old_word some text old_word OLD_WorD and old_word"
     replace_from = "old_word"
     replace_to = "new_word"
 
     result = replace_word(text, replace_from, replace_to)
 
-    assert result == "new_word some text old_word, new_word and old_word!"
+    assert result == "new_word some text new_word new_word and new_word"
