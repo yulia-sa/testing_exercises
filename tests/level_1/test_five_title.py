@@ -3,29 +3,26 @@ from functions.level_1.five_title import change_copy_item
 
 
 @pytest.mark.parametrize(
-    "title,expected_result",
+    "title",
     [
         (
-            "Внимание! Внимание! Внимание! Внимание! Внимание! Внимание! Мартышка съела все бананы!!!!!!!",
             "Внимание! Внимание! Внимание! Внимание! Внимание! Внимание! Мартышка съела все бананы!!!!!!!"
         ),
         (
-            "Внимание! Внимание! Внимание! Внимание! Внимание! Внимание! Мартышка съела все бананы!!!!!!!!",
             "Внимание! Внимание! Внимание! Внимание! Внимание! Внимание! Мартышка съела все бананы!!!!!!!!"
         ),
         (
-            "Copy of Внимание! Внимание! Внимание! Внимание! Внимание! Внимание! Мартышка съела все бананы",
             "Copy of Внимание! Внимание! Внимание! Внимание! Внимание! Внимание! Мартышка съела все бананы"
         )
     ]
 )
-def test__change_copy_item__with_exceed_len_limit(title, expected_result):
+def test__change_copy_item__with_exceed_len_limit(title):
     """
     Если длина (additional_copy_text + title) >= 100 символов —
     должны получить исходный title, вне зависимости от наличия в нем
     текста "Copy of".
     """
-    assert change_copy_item(title) == expected_result
+    assert change_copy_item(title) == title
 
 
 def test__change_copy_item__without_exceed_len_limit():
@@ -91,26 +88,20 @@ def test__change_copy_item__with_num_in_brackets(title, expected_result):
 
 
 @pytest.mark.parametrize(
-    "title,num,expected_result",
+    "title",
     [
         (
-            "Важная информация",
-            25,
             "Важная информация"
         ),
         (
-            "Важная информация!",
-            25,
             "Важная информация!"
         ),
         (
-            "Copy of Важно!!!!",
-            25,
             "Copy of Важно!!!!"
         )
     ]
 )
-def test__change_copy_item__with_exceed_custom_len_limit(title, num, expected_result):
+def test__change_copy_item__with_exceed_custom_len_limit(title, num=25):
     """
     Вместо дефолтного ограничения длины явно его указываем.
 
@@ -118,7 +109,7 @@ def test__change_copy_item__with_exceed_custom_len_limit(title, num, expected_re
     должны получить исходный title, вне зависимости от наличия в нем
     текста "Copy of".
     """
-    assert change_copy_item(title, num) == expected_result
+    assert change_copy_item(title, num) == title
 
 
 def test__change_copy_item__without_exceed_custom_len_limit():
