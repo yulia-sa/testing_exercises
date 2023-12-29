@@ -3,7 +3,7 @@ import decimal
 from functions.level_1.four_bank_parser import BankCard, SmsMessage, Expense, parse_ineco_expense
 
 
-def test_parse_ineco_expense():
+def test__parse_ineco_expense():
     cards = [BankCard("7711", "Jake Santos"),
              BankCard("6633", "Annie Kennedy"),
              BankCard("4422", "Jack Pearson")]
