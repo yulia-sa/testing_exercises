@@ -1,10 +1,6 @@
-import datetime
 import pytest
+from pytest_lazyfixture import lazy_fixture
 from functions.level_1.two_date_parser import compose_datetime_from
-
-
-current_date = datetime.date.today()
-tomorrow_date = current_date + datetime.timedelta(days=1)
 
 
 @pytest.mark.parametrize(
@@ -14,25 +10,13 @@ tomorrow_date = current_date + datetime.timedelta(days=1)
     [
         (
             "not meaningful",
-            "18:37",
-            datetime.datetime(
-                current_date.year,
-                current_date.month,
-                current_date.day,
-                18,
-                37,
-            )
+            "17:23",
+            lazy_fixture("today_datetime_17_23")
         ),
         (
             "tomorrow",
-            "05:01",
-            datetime.datetime(
-                tomorrow_date.year,
-                tomorrow_date.month,
-                tomorrow_date.day,
-                5,
-                1,
-            )
+            "17:23",
+            lazy_fixture("tomorrow_datetime_17_23")
         )
     ]
 )
